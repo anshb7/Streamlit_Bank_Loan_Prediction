@@ -22,9 +22,7 @@ def redirect_to_localhost():
     st.markdown(script, unsafe_allow_html=True)
 def run():
 
-    if st.button("Back to Main Page"):
-                             redirect_to_wikipedia()
-    st.title("Bank Loan Prediction")
+    
 
     ## Account No
     account_no = st.text_input('Account number')
