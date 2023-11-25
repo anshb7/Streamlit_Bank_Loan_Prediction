@@ -4,12 +4,27 @@ import pickle
 
 
 model = pickle.load(open('./Model/ML_Model.pkl', 'rb'))
-
+def redirect_to_wikipedia():
+    # JavaScript to redirect to Wikipedia
+    script = """
+    <script>
+        window.open('https://en.wikipedia.org/', '_blank');
+    </script>
+    """
+    st.markdown(script, unsafe_allow_html=True)
+def redirect_to_localhost():
+    # JavaScript to redirect to localhost:3000
+    script = """
+    <script>
+        window.location.href = 'http://localhost:3000';
+    </script>
+    """
+    st.markdown(script, unsafe_allow_html=True)
 def run():
-    img1 = Image.open('bank.png')
-    img1 = img1.resize((156,145))
-    st.image(img1,use_column_width=False)
-    st.title("Bank Loan Prediction using Machine Learning")
+
+    if st.button("Back to Main Page"):
+                             redirect_to_wikipedia()
+    st.title("Bank Loan Prediction")
 
     ## Account No
     account_no = st.text_input('Account number')
